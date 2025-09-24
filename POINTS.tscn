@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvvgelpg56pup"]
+
+[ext_resource type="Script" path="res://POINTSSS.gd" id="1_rv3af"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rv3af")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1u2pe4l8uj0r"]
+
+[ext_resource type="Script" path="res://Scripts/DebugPanelItem.gd" id="1_3hc3s"]
+[ext_resource type="Texture2D" uid="uid://b4qfvhnsrobdi" path="res://Assets/Sprite/08_bread_dish.png" id="2_8fg28"]
+
+[node name="DebugPanel_Item" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+script = ExtResource("1_3hc3s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -41.0
+offset_right = 41.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8fg28")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_top = 101.0
+offset_right = 100.0
+offset_bottom = 130.0
+text = "Spawn"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

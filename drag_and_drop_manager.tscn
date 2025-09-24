@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf0nqsesyr48r"]
+
+[ext_resource type="Script" path="res://DragAndDropManager.gd" id="1_dp41n"]
+
+[node name="DragDropManager" type="Node2D"]
+script = ExtResource("1_dp41n")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true

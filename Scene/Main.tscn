@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://db3ttitf8iema"]
+
+[ext_resource type="PackedScene" uid="uid://bxbrqqghgi4wa" path="res://Scene/Features/inventory_system.tscn" id="1_1nckb"]
+[ext_resource type="PackedScene" uid="uid://d2dujxo723jwu" path="res://Scene/hud_inventory.tscn" id="2_anqp8"]
+[ext_resource type="PackedScene" uid="uid://cq5fo3jnfuol0" path="res://Scene/World Object/2DWorldItemObject.tscn" id="4_eh0lb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olmyc"]
+
+[node name="Main" type="Node2D"]
+
+[node name="InventorySystem" parent="." node_paths=PackedStringArray("currentHUDInventory") instance=ExtResource("1_1nckb")]
+inventory_slot_count = 100
+currentHUDInventory = NodePath("../Canvas/HUD_Inventory")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="HUD_Inventory" parent="Canvas" instance=ExtResource("2_anqp8")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(1, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape2D_olmyc")
+
+[node name="2DWorldItemObject" parent="." instance=ExtResource("4_eh0lb")]

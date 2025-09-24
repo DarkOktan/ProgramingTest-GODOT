@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq5fo3jnfuol0"]
+
+[ext_resource type="Script" path="res://Scripts/WorldItemObject.gd" id="1_h033l"]
+[ext_resource type="Texture2D" uid="uid://d3iai4btlmeal" path="res://Assets/Sprite/07_bread.png" id="1_ueowt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtgwh"]
+size = Vector2(10, 8)
+
+[node name="2DWorldItemObject" type="RigidBody2D" groups=["DragableObject"]]
+position = Vector2(0, -4)
+input_pickable = true
+script = ExtResource("1_h033l")
+
+[node name="2DDisplay" type="Sprite2D" parent="."]
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("1_ueowt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rtgwh")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

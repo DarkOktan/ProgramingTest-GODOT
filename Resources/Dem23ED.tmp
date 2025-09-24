@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemDataContainer" load_steps=3 format=3 uid="uid://r6l743eg22uq"]
+
+[ext_resource type="Script" path="res://Scripts/ItemData.gd" id="1_pbts4"]
+[ext_resource type="Script" path="res://Scripts/ItemDataContainer.gd" id="2_orgmo"]
+
+[resource]
+script = ExtResource("2_orgmo")
+ItemDatas = Array[ExtResource("1_pbts4")]([null])

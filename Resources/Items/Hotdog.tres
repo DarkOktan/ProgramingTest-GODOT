@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c8kfyrwv24jve"]
+
+[ext_resource type="Texture2D" uid="uid://cffydbc8c4erg" path="res://Assets/Sprite/54_hotdog.png" id="1_d5tae"]
+[ext_resource type="Script" path="res://Scripts/ItemData.gd" id="2_lwqf1"]
+
+[resource]
+script = ExtResource("2_lwqf1")
+ItemName = "Hotdog"
+ItemDescription = "Ini Hotdog"
+ItemTexture = ExtResource("1_d5tae")

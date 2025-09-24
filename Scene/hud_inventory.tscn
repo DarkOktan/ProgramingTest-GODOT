@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2dujxo723jwu"]
+
+[ext_resource type="Script" path="res://Scripts/hud_inventory.gd" id="1_njdj4"]
+[ext_resource type="Script" path="res://Scripts/DropPoint.gd" id="3_eanpg"]
+[ext_resource type="Script" path="res://Scripts/HUD_DebugPanel.gd" id="4_nrs1g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7gcj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_njdj4")
+
+[node name="DropPoint" type="Control" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("3_eanpg")
+
+[node name="Panel" type="Panel" parent="DropPoint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u7gcj")
+
+[node name="HUD_Inventory_BG" type="Panel" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -188.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HUD_Inventory_BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -11.5
+offset_right = 58.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.498039)
+text = "Item Container"
+
+[node name="HUD_Inventory" type="ScrollContainer" parent="HUD_Inventory_BG"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+horizontal_scroll_mode = 0
+
+[node name="Slot_Container" type="GridContainer" parent="HUD_Inventory_BG/HUD_Inventory"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+columns = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 154.0
+offset_bottom = 56.0
+text = "Debug Panel"
+
+[node name="Label" type="Label" parent="Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Debug Panel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Debug_Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+offset_right = 376.0
+offset_bottom = 291.0
+script = ExtResource("4_nrs1g")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Debug_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Debug_Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 35
+columns = 3
+
+[node name="Button" type="Button" parent="Debug_Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -26.0
+offset_right = 34.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "X"
+
+[connection signal="button_down" from="Button" to="Debug_Panel" method="OnMouseButtonDown_OpenPanel"]
+[connection signal="button_down" from="Debug_Panel/Button" to="Debug_Panel" method="OnMouseButtonDown_ClosePanel"]

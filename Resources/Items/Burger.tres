@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cnglal2bwjeb2"]
+
+[ext_resource type="Texture2D" uid="uid://bjnjsx841xofx" path="res://Assets/Sprite/15_burger.png" id="1_yn83c"]
+[ext_resource type="Script" path="res://Scripts/ItemData.gd" id="2_codsj"]
+
+[resource]
+script = ExtResource("2_codsj")
+ItemName = "Mie Ayam"
+ItemDescription = "Ini Burger"
+ItemTexture = ExtResource("1_yn83c")

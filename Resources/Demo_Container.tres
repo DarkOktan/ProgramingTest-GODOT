@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDataContainer" load_steps=6 format=3 uid="uid://r6l743eg22uq"]
+
+[ext_resource type="Script" path="res://Scripts/ItemData.gd" id="1_pbts4"]
+[ext_resource type="Resource" uid="uid://cnglal2bwjeb2" path="res://Resources/Items/Burger.tres" id="2_ivcbg"]
+[ext_resource type="Script" path="res://Scripts/ItemDataContainer.gd" id="2_orgmo"]
+[ext_resource type="Resource" uid="uid://c8kfyrwv24jve" path="res://Resources/Items/Hotdog.tres" id="3_mwo21"]
+[ext_resource type="Resource" uid="uid://b3mwxpxvethds" path="res://Resources/Items/Burito.tres" id="4_1afc8"]
+
+[resource]
+script = ExtResource("2_orgmo")
+ItemOnContainer = Array[ExtResource("1_pbts4")]([ExtResource("2_ivcbg"), ExtResource("3_mwo21"), ExtResource("4_1afc8")])
