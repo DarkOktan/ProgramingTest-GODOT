@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2dujxo723jwu"]
 
-[ext_resource type="Script" path="res://Scripts/hud_inventory.gd" id="1_njdj4"]
-[ext_resource type="Script" path="res://Scripts/DropPoint.gd" id="3_eanpg"]
-[ext_resource type="Script" path="res://Scripts/HUD_DebugPanel.gd" id="4_nrs1g"]
+[ext_resource type="Script" path="res://Scripts/Main Features/hud_inventory.gd" id="1_njdj4"]
+[ext_resource type="Script" path="res://Scripts/Main Features/DropPoint.gd" id="3_eanpg"]
+[ext_resource type="Script" path="res://Scripts/Main Features/HUD_DebugPanel.gd" id="4_nrs1g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7gcj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

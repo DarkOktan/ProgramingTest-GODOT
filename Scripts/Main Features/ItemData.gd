@@ -6,3 +6,5 @@ extends Resource
 @export var ItemName : String
 @export var ItemDescription : String
 @export var ItemTexture : Texture2D
+
+@export var OnHoverWorldObjectEffect : BaseEffect

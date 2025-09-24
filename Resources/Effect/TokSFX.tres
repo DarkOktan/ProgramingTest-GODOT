@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://cjcj2lhg75d48"]
+
+[ext_resource type="PackedScene" uid="uid://chc1u73vv1u8t" path="res://Scene/Features/Effect/Audio/TokEffect.tscn" id="1_3cyjt"]
+[ext_resource type="Script" path="res://Scripts/Other Features/SoundEffect.gd" id="1_6shgs"]
+
+[resource]
+script = ExtResource("1_6shgs")
+EffectToShow = ExtResource("1_3cyjt")

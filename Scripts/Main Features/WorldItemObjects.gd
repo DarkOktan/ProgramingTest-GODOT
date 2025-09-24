@@ -2,7 +2,7 @@
 # Seperti untuk menampilkan object, membuat feature drag on drop object
 
 class_name WorldItemObjects
-extends Node2D
+extends RigidBody2D
 
 # Referensi dari Sprite 2D yang ada di Scene
 # Digunakan untuk menampilkan Gambar dari item
@@ -52,3 +52,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			print("Drop")
 			isDraggingObject = false
 			DropToUI()
+
+func _on_mouse_entered() -> void:
+	if linear_velocity.length() < 0.1:
+		item.OnHoverWorldObjectEffect.OnEffectExecuted(global_position, self)
+	

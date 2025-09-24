@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1u2pe4l8uj0r"]
 
-[ext_resource type="Script" path="res://Scripts/DebugPanelItem.gd" id="1_3hc3s"]
+[ext_resource type="Script" path="res://Scripts/Main Features/DebugPanelItem.gd" id="1_3hc3s"]
 [ext_resource type="Texture2D" uid="uid://b4qfvhnsrobdi" path="res://Assets/Sprite/08_bread_dish.png" id="2_8fg28"]
 
 [node name="DebugPanel_Item" type="Panel"]

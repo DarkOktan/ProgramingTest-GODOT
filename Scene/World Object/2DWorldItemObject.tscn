@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq5fo3jnfuol0"]
 
-[ext_resource type="Script" path="res://Scripts/WorldItemObjects.gd" id="1_h033l"]
+[ext_resource type="Script" path="res://Scripts/Main Features/WorldItemObjects.gd" id="1_h033l"]
 [ext_resource type="Texture2D" uid="uid://d3iai4btlmeal" path="res://Assets/Sprite/07_bread.png" id="1_ueowt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtgwh"]
@@ -28,3 +28,4 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_hwowc")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
