@@ -39,7 +39,7 @@ func OnInit(HUDInventoryInstance: HUDInventory, SlotSet : InventorySlot) -> void
 # Fungsi ini digunakan untuk mengupdate tampilan dari HUD Slot ini
 # Seperti tampilan berdasarkan dari inventory Slot yang dimasukkan
 func UpdateSlot():
-	print("Update Slot")
+	print("Update HUD Slot")
 	if SlotAttached == null || SlotAttached.itemdataOnSlot == null:
 		itemOnSlotTexture.visible = false
 		quantityText.text = "0"
@@ -62,7 +62,7 @@ func _get_drag_data(at_position : Vector2) -> ItemData:
 
 	var dataDragged = SlotAttached.itemdataOnSlot
 	
-	print("Get Dragged Data")
+	print("Start Dragging")
 	var preview : Control = itemOnSlotTexture.duplicate()
 	
 	set_drag_preview(preview)
@@ -87,6 +87,7 @@ func NodeObjectDrop(itemInsertedObject : WorldItemObjects) -> void:
 	
 	if InventorySystem.GetInventorySystemInstance.CheckIfDifferentItem(SlotAttached, 
 	itemInsertedObject.item) && !SlotAttached.IsEmpty():
+		print("Not Empty and Have Different Type")
 		return
 	
 	# Menghapus Object nya dan Menambah object ke inventory

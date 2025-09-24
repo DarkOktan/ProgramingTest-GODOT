@@ -114,7 +114,7 @@ func RemoveFromInventory(quantity : int, slot : InventorySlot) -> bool:
 # drop di world point
 # posisi ini sesuai dengan posisi mouse ketika melepaskannya
 func OnDroppingItem(data: Variant) -> void:
-	print("Drop On Drag Manager")
+	print("Dropping Slot Item")
 	var WorldSceneObject : PackedScene = preload("res://Scene/World Object/2DWorldItemObject.tscn")
 	
 	# Spawning 2D World Object based on data

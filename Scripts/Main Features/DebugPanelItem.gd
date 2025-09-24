@@ -2,7 +2,9 @@
 class_name DebugPanelItem
 extends Panel
 
+# Reference dari button Spawn
 @onready var button: Button = $Button
+# Reference dari texture rect yang digunakan untuk menambilkan gambar
 @onready var texture_rect: TextureRect = $TextureRect
 
 var item : ItemData
@@ -20,6 +22,6 @@ func OnSetupDisplay():
 func _on_button_button_down() -> void:
 	var isSuccess : bool = InventorySystem.GetInventorySystemInstance.AddToSlotFromPanel(item)
 	if isSuccess:
-		print("Spawning Success")
+		print("Add To Container Success")
 	else:
-		print("Spawning Failed")
+		print("Add To Container Failed")
