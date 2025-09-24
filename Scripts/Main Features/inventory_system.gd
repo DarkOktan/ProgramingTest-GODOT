@@ -64,17 +64,15 @@ func CheckIfDifferentItem(slot : InventorySlot, data : ItemData) -> bool:
 # Lalu memanggil Signal UpdateInventory untuk memberi tahu ke class lain bahwa
 # Inventory Telah di update
 # Fungsi ini dipanggil saat mendrop dari Word Object
-# Return True jika Menambahkan ke slot dengan item yang sama
-# return False Jika Menambahkan ke slot dengan item yang kosong
-func AddToInventory(quantity : int, data : ItemData, slot : InventorySlot) -> bool:
-	if slot.itemdataOnSlot == null:
-		slot.itemdataOnSlot = data
-		slot.itemQuantity = quantity;
-		
-		UpdateInventory.emit()
+# Return True jika berhasil
+# return False jika gagal seperti slot nya sudah penuh (jika tidak ada yang setipe dengan dia)
+func AddToInventory(quantity : int, data : ItemData) -> bool:
+	var slotTarget : InventorySlot = GetInventorySlotTarget(data)
+	if slotTarget == null:
 		return false
 	
-	slot.itemQuantity += quantity
+	slotTarget.itemdataOnSlot = data
+	slotTarget.itemQuantity += quantity
 		
 	UpdateInventory.emit()
 	return true
@@ -125,3 +123,35 @@ func OnDroppingItem(data: Variant) -> void:
 	spawnedWorldScene.global_position = mousePos
 	
 	get_tree().current_scene.add_child(spawnedWorldScene)
+
+# -----------------------------------------
+# Check jika ada yang tipe sama maka ambil itu
+# jika tidak ada akan membuat satu
+
+# Untuk mendapatkan Semua Slot yang ada didalam
+# jika ada yang sama maka tidak perlu mengambil yang baru
+func GetInventorySlotTarget(data : ItemData) -> InventorySlot:
+	var slotTarget = GetSlotWithSameItemOnContainer(data)
+	
+	if slotTarget == null:
+		slotTarget = GetInventorySlotWithEmptyItem(data)
+	
+	return slotTarget
+
+# Untuk Mengecheck apakah ada item yang didalam container
+func GetSlotWithSameItemOnContainer(data : ItemData) -> InventorySlot:
+	for slotItem : InventorySlot in InventorySlotInstance:
+		if slotItem.itemdataOnSlot == null:
+			continue
+		
+		if slotItem.itemdataOnSlot == data:
+			return slotItem
+	
+	return null
+# Untuk mencari inventory slot yang kosong
+func GetInventorySlotWithEmptyItem(data : ItemData) -> InventorySlot:
+	for slotItem : InventorySlot in InventorySlotInstance:
+		if (slotItem.IsEmpty() || slotItem.itemdataOnSlot == data):
+			return slotItem
+	
+	return null

@@ -55,6 +55,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 # Fungsi ketika Mouse menghover ke arah object
 func _on_mouse_entered() -> void:
-	if linear_velocity.length() < 0.1 && item.OnHoverWorldObjectEffect != null:
+	if linear_velocity.length() < 0.1 && item != null && item.OnHoverWorldObjectEffect != null:
 		item.OnHoverWorldObjectEffect.OnEffectExecuted(global_position, self)
 	

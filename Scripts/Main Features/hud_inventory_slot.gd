@@ -75,11 +75,10 @@ func _get_drag_data(at_position : Vector2) -> ItemData:
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
 
-# Fungsi ini memiliki kegunaan untuk mengset Inventory Slot yang kosong dengan Slot yang sedang didrag (Bukan untuk World Object)
+# Fungsi ini memiliki kegunaan untuk mengset Inventory Slot yang kosong atau tipe item sama
+# dengan Slot yang sedang didrag (Bukan untuk World Object)
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	if (SlotAttached.IsEmpty()):
-		print("Drop On Empty Slot")
-		InventorySystem.GetInventorySystemInstance.AddToInventory(1, data, SlotAttached)
+	InventorySystem.GetInventorySystemInstance.AddToInventory(1, data)
 
 # Fungsi ini memiliki kegunaan untuk mengatur (menambah) Slot yang di drop oleh World Object Item
 func NodeObjectDrop(itemInsertedObject : WorldItemObjects) -> void:
@@ -93,7 +92,7 @@ func NodeObjectDrop(itemInsertedObject : WorldItemObjects) -> void:
 	# Menghapus Object nya dan Menambah object ke inventory
 	itemInsertedObject.queue_free()
 	
-	InventorySystem.GetInventorySystemInstance.AddToInventory(1, itemInsertedObject.item, SlotAttached)
+	InventorySystem.GetInventorySystemInstance.AddToInventory(1, itemInsertedObject.item)
 
 # Fungsi ini untuk mengecheck Slot kosong atau tidak
 # jika tidak makan akan memunculkan tooltip
