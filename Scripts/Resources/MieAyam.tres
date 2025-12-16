@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b8uivoofxddtp"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/ItemData.gd" id="1_5bm3o"]
+[ext_resource type="Texture2D" uid="uid://r4mre5tudw6r" path="res://Assets/Sprite/pngtree-meatball-chicken-noodle-food-illustration-vector-image-png-png-image_8240150.png" id="1_q8y1f"]
+
+[resource]
+script = ExtResource("1_5bm3o")
+ItemName = "Mie Ayam"
+ItemDescription = "Buff ++"
+ItemPicture = ExtResource("1_q8y1f")

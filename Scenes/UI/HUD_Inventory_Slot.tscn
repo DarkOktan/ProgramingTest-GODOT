@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://8u5m0lrk6q67"]
+
+[ext_resource type="Texture2D" uid="uid://r4mre5tudw6r" path="res://Assets/Sprite/pngtree-meatball-chicken-noodle-food-illustration-vector-image-png-png-image_8240150.png" id="1_54rp7"]
+
+[node name="HUD_Inventory_Slot" type="Panel"]
+offset_right = 120.0
+offset_bottom = 120.0
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 110.0
+texture = ExtResource("1_54rp7")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 91.0
+offset_right = 116.0
+offset_bottom = 116.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
